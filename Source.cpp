@@ -218,52 +218,6 @@ void bieuDoGantt(Queue q)
 	for (QueueNode *p = q.Head; p != NULL; p = p->Next)
 		printf("%7d", p->Info.BT);
 }
-void main()
-{
-	Queue q, gantt, gantam;
-	createQueue(q);
-	showQueue(q);
-	initQueue(gantam);
-	for (QueueNode *p = q.Head; p != NULL; p = p->Next)
-		insertTail(gantam, createQueueNode(p->Info));
-	selectionSort(q);
-	int quantum;
-	printf("Nhap quantum:");
-	scanf("%d", &quantum);
-	xuLy(q, gantt, quantum);
-	bieuDoGantt(gantt);
-	tinhThoiGianHTTB(gantt, gantam);
-	tinhThoiGianChoTB(gantt, gantam);
-	showQueuegantt(gantam);
-	getch();
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 float tinhThoiGianChoTB(Queue gantt, Queue gantam)
 {
 	int dem = 0;
@@ -288,3 +242,25 @@ float tinhThoiGianHTTB(Queue gantt, Queue ganttam)
 	}
 	return tong / (float)dem;
 }
+void main()
+{
+	Queue q, gantt, gantam;
+	createQueue(q);
+	showQueue(q);
+	initQueue(gantam);
+	for (QueueNode *p = q.Head; p != NULL; p = p->Next)
+		insertTail(gantam, createQueueNode(p->Info));
+	selectionSort(q);
+	int quantum;
+	printf("Nhap quantum:");
+	scanf("%d", &quantum);
+	xuLy(q, gantt, quantum);
+	bieuDoGantt(gantt);
+	tinhThoiGianHTTB(gantt, gantam);
+	tinhThoiGianChoTB(gantt, gantam);
+	showQueuegantt(gantam);
+	getch();
+}
+
+
+
